@@ -16,7 +16,7 @@ jobs:
       - save_cache:
           key: "npm-packages"
           paths:
-            - "/src/node_modules"
+            - "/node_modules"
       - run:
           name: "Lint the code"
           command: "npm run lint"
