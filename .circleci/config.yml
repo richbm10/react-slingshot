@@ -14,7 +14,7 @@ jobs:
           name: "Install node dependencies"
           command: "npm install"
       - save_cache:
-          key: "npm-packages"
+          key: myapp-{{ epoch }}
           paths:
             - "/node_modules"
       - run:
@@ -27,7 +27,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - "npm-packages"
+            - myapp-{{ epoch }}
       - run: "npm install"
       - run:
           name: "Run unit testing"
@@ -39,7 +39,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - "npm-packages"
+            - myapp-{{ epoch }}
       - run:
           name: "Check for vulnerabilities"
           command: "npm audit"
